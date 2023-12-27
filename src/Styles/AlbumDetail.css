@@ -1,0 +1,68 @@
+.Detail{
+    width: 100%;
+    top: 80px;
+    height: 100%;
+    overflow-y: auto;
+    max-width: 1600px;
+    margin-left: 288px;
+    position: absolute;
+    flex-grow: 1;
+    z-index: 1;
+    padding: 30px; 
+}
+.AlbumTitle{
+    padding-top: 40px;
+    padding-left: 30px;
+}
+.AlbumTitle h1{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.AlbumTitle p{
+    color: red;
+    font-size: 26px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#songDescription{
+    font-size: 16px;
+    color: gray;
+}
+
+#songMoodandYear{
+    color: gray;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.DetailTopSection{
+    width: 100%;
+    height: 280px;
+    display: flex;
+}
+
+.DetailTable{
+    display: flex;
+}
+
+.SongImage{
+    width: 100px;
+}
+
+.SongTitle {
+    width: 300px;
+}
+
+.SongArtistName {
+    width: 200px;
+}
+
+.songlist{
+    padding-top: 20px;
+    padding-bottom: 200px;
+}

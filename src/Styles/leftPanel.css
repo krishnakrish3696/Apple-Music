@@ -1,0 +1,126 @@
+.leftMenu {
+    width: 280px;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-color: #f1efef99;
+    backdrop-filter: blur(10px);
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.leftMenu .logoContainer {
+    color: black;
+    display: flex;
+    align-items: center;
+}    
+
+.leftMenu .logoContainer i{
+    font-size: 30px;
+    padding-right: 10px;
+}
+
+.leftMenu .logoContainer h2{
+    font-size: 30px;
+}
+
+.searchBox{
+    width: 100%;
+    height: 45px;
+    background-color: rebeccapurple;
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.searchBox input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding-left: 45px;
+}
+
+.searchBox .searchIcon{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 5px;
+    left: 0;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    color: gray;
+}
+
+.BrowseSection{
+    width: 100%;
+    height: 35px;
+    position: relative;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.BrowseSection .BrowseButton{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.BrowseSection .BrowseIcon{
+    position: absolute;
+    width: 45px;
+    height: 30px;
+    top: 0px;
+    left: 0;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    color: gray;
+}
+
+.listsContainer {
+    margin: 15px 0;
+}
+
+.listsContainer .title {
+    color: darkgray;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.listsContainer ul {
+    width: 100%;
+    padding: 0;
+}
+
+.listsContainer ul li {
+    list-style: none;
+}
+
+.listsContainer ul li a{
+    text-decoration: none;
+    color: gray;
+    font-size: 15px;
+    top: 0px;
+}
+
+.listsContainer ul li a i{
+    padding-right: 10px;
+
+}
+
+.listsContainer ul li a span{
+    font-weight: bold;
+    color: black;
+}
+
