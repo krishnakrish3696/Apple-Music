@@ -15,7 +15,7 @@ const SongDurationComponent = ({ audioUrl }) => {
 
   return (
     <div>
-      {duration !== null ? (
+      {duration != null ? (
         <p>{Math.floor(duration)} seconds</p>
       ) : (
         <p>Loading duration...</p>

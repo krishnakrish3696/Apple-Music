@@ -98,7 +98,7 @@ const SimpleSlider = (props) => {
                     />
                     <IconButton style={{ position: 'absolute', top: '90%', left: '10%', transform: 'translate(-50%, -50%)', color: "white"}}>
                     <PlayCircleIcon
-                        onClick={item._id !== null ? () => {setSongId(item._id); handleMusic(); } : null}
+                        onClick={item._id != null ? () => {setSongId(item._id); handleMusic(); } : null}
                         fontSize="large"
                     />
                     </IconButton>

@@ -54,7 +54,7 @@ function Controls() {
     if(songlist && song)
     {
       for(let i=0; i<20; i++){
-        if(song?.songid == songlist[i]?._id)
+        if(song?.songid === songlist[i]?._id)
         {
           console.log(i);
             index = i;
