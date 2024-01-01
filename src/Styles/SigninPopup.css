@@ -1,0 +1,68 @@
+.Icon{
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    justify-content: center;
+}
+
+.txtMail{
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+}
+
+.lnkForgetPwd{
+    text-align: center;
+    font-size: 15px;
+}
+
+.lnkForgetPwd a{
+    color: #fa233b;
+    text-decoration: none;
+}
+ 
+.HandIcon{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+}
+
+#lblInfo{
+    width: 500px;
+    text-align: center;
+    display: flex;
+    font-size: 11px;
+    justify-content: center;
+}
+
+.lblInformation{
+    display: flex;
+    justify-content: center;
+}
+
+.lnkMediaServices{
+    text-align: center;
+    font-size: 11px;
+}
+
+.lnkMediaServices a{
+    color: #fa233b;
+    text-decoration: none;
+}
+
+.outlined-basic{
+    border-color: #fa233b;
+}
+
+.btnClass{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnClass .continuebtn{
+    width: 400px;
+    color:white;
+    background-color: #fa233b;
+}

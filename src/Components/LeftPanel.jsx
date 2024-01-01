@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import CloudQueueIcon from '@mui/icons-material/CloudQueue';
+import {Link, NavLink } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import BrowseIcon from '@mui/icons-material/ViewAgendaOutlined';
 import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
+import { SearchBar } from '../SearchBar/SearchBar';
+import { SearchResultsList } from '../SearchBar/SearchResultsList';
 import '../Styles/leftPanel.css';
 
 const Menulist = [
@@ -23,37 +28,58 @@ const PlayListItems = [
         name: "Romantic!",
     },
     {
-        id:1,
+        id:2,
         icon:<IconButton> <QueueMusicIcon fontSize='small'/> </IconButton>,
         name: "Happy!",
     },
     {
-        id:1,
+        id:3,
         icon:<IconButton> <QueueMusicIcon fontSize='small'/> </IconButton>,
         name: "Sad",
     },
     {
-        id:1,
+        id:4,
         icon:<IconButton> <AddIcon fontSize='small'/> </IconButton>,
         name: "Excited",
     },
 ];
 
+function playlistname(id)
+{
+    let name = ''
+    if(id ===1)
+    {
+        name = 'romantic';
+    }
+    else if( id === 2)
+    {
+        name = 'happy';
+    }
+    else if( id===3)
+    {
+        name = 'sad';
+    }
+    else
+    {
+        name='excited';
+    }
+    return name;
+}
 
 function LeftPanel() {
+  const [results, setResults] = useState([]);
+  const navigate = useNavigate();
   return (
     <div className="leftMenu">                
-        <div className = "logoContainer">
+        <div className = "logoContainer" >
             <i>
                 <CloudQueueIcon/>
             </i>
             <h2>Music</h2>
         </div>
         <div className="searchBox">
-            <input type="text" placeholder="Search"/>
-            <i className="searchIcon">
-                <SearchIcon/>
-            </i>
+            <SearchBar setResults={setResults} />
+            {results && results.length > 0 && <SearchResultsList results={results} />}
         </div>
         <div className="BrowseSection">
             <button className="BrowseButton" type="submit">Browse</button>
@@ -84,10 +110,12 @@ function LeftPanel() {
                 {PlayListItems &&
                 PlayListItems.map((playlist) =>(
                     <li>
-                        {" "}
                         <a href="#">
-                            <i>{playlist.icon}</i>
-                            <span>{playlist.name}</span>
+                            <Link to={{ pathname: "AllCards", 
+                            search: playlistname(playlist.id) }}>
+                                <i>{playlist.icon}</i>
+                                <span>{playlist.name}</span>
+                            </Link>
                         </a>
                     </li>
                 ))}

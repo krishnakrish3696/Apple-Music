@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useRef, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 import FastRewindIcon from "@mui/icons-material/FastRewind";
 import FastForwardIcon from "@mui/icons-material/FastForward";
@@ -14,6 +15,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeMuteIcon from '@mui/icons-material/VolumeMute';
 import { SonglistContext } from '../Context/PlayerContext';
+import UseModal from '../Components/SigninPopup';
 
 import {
   styled, Typography, Slider,
@@ -48,15 +50,15 @@ function Controls() {
     const [volume, setVolume] = useState(30);
     const [elapsed, setElapsed] = useState(0);
     const [duration, setDuration] = useState(0);
+    const navigate = useNavigate();
+    const Username = localStorage.getItem("Token");
 
     console.log(songlist);
-    console.log(song);
     if(songlist && song)
     {
-      for(let i=0; i<20; i++){
+      for(let i=0; i<songlist.length; i++){
         if(song?.songid === songlist[i]?._id)
         {
-          console.log(i);
             index = i;
         }
       }
@@ -88,14 +90,18 @@ function Controls() {
     const toggleSkipForward = () => {
 
       if(index <= songlist.length - 1) {
-        console.log(songlist[index + 1]._id);
           let songid = songlist[index + 1]._id;
           SetSong({songid});
       } 
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem("Token");
+    localStorage.removeItem("Username");
+    localStorage.removeItem("Email");
+    navigate(`/`)
+  }
   const toggleSkipBackward = () => {
-    console.log("Backward")
       if(index > 0) {
         let songid = songlist[index - 1]._id;
         SetSong({songid});
@@ -162,7 +168,7 @@ function Controls() {
               />
             )}
           </div>
-          {currentSong ? <audio src={currentSong.audio_url} ref={audioRef} muted={mute} /> : null}
+          {currentSong ? <audio src={currentSong.audio_url} ref={audioRef} autoPlay={true} muted={mute} /> : null}
 
           <div className="songTitle">
             {currentSong && currentSong?.title ? <p>{currentSong?.title}</p> : null}
@@ -185,6 +191,13 @@ function Controls() {
                 <PSlider min={0} max={100} value={volume} onChange={(e, v) => setVolume(v)}/>
               </Stack>
             </Box>
+        </div>
+        <div className='signin'>
+          {Username == null ? (
+            <UseModal />
+          ) : (
+            <button className='logout' onClick={handleLogout}>LogOut</button>
+          )}
         </div>
     </div>
   )

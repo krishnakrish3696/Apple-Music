@@ -104,7 +104,7 @@ const SimpleSlider = (props) => {
                     </IconButton>
                 </CardActionArea>
               </Card>
-              <h7 className="cardTitle">{item.title}</h7>
+              <h5 className="cardTitle">{item.title}</h5>
             </div>
           );
         })}

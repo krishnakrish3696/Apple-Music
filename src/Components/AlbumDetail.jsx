@@ -32,7 +32,6 @@ function AlbumDetail() {
           });
         setArtistData(artistData[0]);
         setSongsData(response.data);
-        console.log(response.data);
       }
       useEffect(() => {
         getAllmusic();

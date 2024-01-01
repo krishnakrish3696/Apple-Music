@@ -57,7 +57,7 @@ const SongsList = (props) => {
               {allsong?.map((item) => (
                   <TableRow
                     key={item._id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }, cursor: "pointer" }}
                   >
                   <TableCell component="th" scope="row" sx={{ minWidth: 400 }}>
                     <span onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>{item.title}</span> 

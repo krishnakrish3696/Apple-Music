@@ -7,12 +7,16 @@ import HomePage from './Components/HomePage';
 import AlbumDetail from './Components/AlbumDetail';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import PlayerContextProvider from './Context/PlayerContextProvider';
+import MyAccount from './Components/MyAccount';
+import ProtectedRoute from './ProtectedRoute';
+import AllCards from './Components/AllCards';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
       <Route path='' element={<HomePage/>}></Route>
       <Route path='AlbumDetail' element={<AlbumDetail/>}></Route>
+      <Route exact path="AllCards" Component={AllCards}></Route>  
     </Route>
   )
 )

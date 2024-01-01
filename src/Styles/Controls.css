@@ -35,11 +35,11 @@
     width: 500px;
     margin-left: 100px; 
     margin-bottom: 5px;
-    background-color: #f1efef99;
+    background-color: lightgray;
 }
 
 input[type="range"] {
-    accent-color:#f1efef99;
+    accent-color:black;
     top: -17px;
     width: 462px;
     max-width: 900px;
@@ -92,4 +92,26 @@ input[type="range"] {
 .MusicPlay{
     position: relative;
     top: -94px;
+}
+
+.signin{
+    margin-left: 300px;
+    margin-top: 3px;
+}
+
+.logout{
+    font-family: IBM Plex Sans,sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    -webkit-transition: all 150ms ease;
+    transition: all 150ms ease;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #DAE2ED;
+    color: #1C2025;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
