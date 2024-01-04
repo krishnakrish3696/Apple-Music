@@ -25,7 +25,7 @@ import { Preview } from '@mui/icons-material';
 
 const PSlider = styled(Slider)(({theme, ...props}) => ({
   color: 'Gray',
-  height: 3,
+  height: 2,
   '&:hover': {
       cursor: 'auto',
       color: 'Black'  
@@ -53,7 +53,6 @@ function Controls() {
     const navigate = useNavigate();
     const Username = localStorage.getItem("Token");
 
-    console.log(songlist);
     if(songlist && song)
     {
       for(let i=0; i<songlist.length; i++){
@@ -96,11 +95,11 @@ function Controls() {
   }
 
   const handleLogout = () => {
+    localStorage.removeItem("UserData");
     localStorage.removeItem("Token");
-    localStorage.removeItem("Username");
-    localStorage.removeItem("Email");
     navigate(`/`)
   }
+
   const toggleSkipBackward = () => {
       if(index > 0) {
         let songid = songlist[index - 1]._id;
@@ -141,19 +140,19 @@ function Controls() {
     <div className='Topbarsection'>
         <div className="MusicPlayersection">
             <div className="Shuffle">
-                <IconButton> <ShuffleIcon fontSize="Small"/></IconButton>
+                <IconButton> <ShuffleIcon fontSize="small"/></IconButton>
             </div>
             <div className="FastRewind">
                 <IconButton> <FastRewindIcon onClick={toggleSkipBackward} fontSize="Medium" /></IconButton>
             </div>
             <div className="Play/Pause">
-                {isPlaying ? (<IconButton> <PauseIcon onClick={togglePlay} fontSize='Large' /></IconButton>) : (<IconButton> <PlayArrowIcon onClick={togglePlay} /> </IconButton>)}
+                {isPlaying && currentSong  ? (<IconButton> <PauseIcon onClick={togglePlay} fontSize='Large' /></IconButton>) : (<IconButton> <PlayArrowIcon onClick={togglePlay} /> </IconButton>)}
             </div>
             <div className="FastForward">
                 <IconButton> <FastForwardIcon onClick={toggleSkipForward} fontSize="Medium" /></IconButton>
             </div>
             <div className="Loop">
-                <IconButton> <LoopIcon fontSize="Small" /></IconButton>
+                <IconButton> <LoopIcon fontSize="small" /></IconButton>
             </div>
         </div>
         <div className="Music">
@@ -187,7 +186,7 @@ function Controls() {
         <div className='VolumSlider'>
             <Box sx={{ width: 100 }}>
               <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
-                <VolumeBtns/>
+                <VolumeBtns fontSize="small"/>
                 <PSlider min={0} max={100} value={volume} onChange={(e, v) => setVolume(v)}/>
               </Stack>
             </Box>

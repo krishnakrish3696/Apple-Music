@@ -1,6 +1,6 @@
 .Topbarsection{
     width: 100%;
-    height: 54px;
+    height: 46px;
     background-color: rgba(241, 239, 239, .6);
     backdrop-filter: blur(10px);
     padding-left: 5px;
@@ -31,7 +31,7 @@
 
 }
 .Music{
-    height: 44px;
+    height: 40px;
     width: 500px;
     margin-left: 100px; 
     margin-bottom: 5px;
@@ -45,20 +45,20 @@ input[type="range"] {
     max-width: 900px;
     margin-left: 44px;
     left: -5px;
-    height: 3px;
+    height: 1px;
     grid-area: track;
     position: relative;
 }
 
 .logo{
     display: flex;
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
 }
 
 #Songlogo{
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
 }
 
 .songTitle{

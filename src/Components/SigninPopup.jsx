@@ -107,14 +107,19 @@ const handlesubmit = (e) => {
           return res.json(); // Assuming the response is in JSON format
       }).then((data) => {
           // Store the response data in local storage
-          localStorage.setItem("Username", name);
-          localStorage.setItem("Email", email);
-          localStorage.setItem("Token", data.token); // Store the response data
+          // localStorage.setItem("Username", name);
+          // localStorage.setItem("Email", email);
+          // localStorage.setItem("Token", data.token); // Store the response data
+          localStorage.setItem("Token",data.token);
+          localStorage.setItem("UserData",JSON.stringify(data.data.user));
+
           toast.success('Registered successfully.');
+          window.location.reload();
       }).catch((err) => {
           toast.error('Failed: ' + err.message);
       });
-      navigate(`/`);
+    //  navigate(`/`);
+      
       setShowSignUpModal(false);
       setOpen(false);
   }
