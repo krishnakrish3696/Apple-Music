@@ -12,7 +12,6 @@ import PlayerContext from "../Context/PlayerContext";
 
 
 const SimpleSlider = (props) => {
-  const [songid, setSongId] = useState('')
   const {SetSong} = useContext(PlayerContext);
   const navigate = useNavigate();
   const { category, title } = props.categories;
@@ -36,8 +35,10 @@ const SimpleSlider = (props) => {
     getCatergoryData();
   }, []);
 
-  const handleMusic = () => {
-    SetSong({songid})
+  const handleCardClick = (id) => {
+    console.log(id,"===");
+    SetSong(id);
+    navigate(`/AlbumDetail`)
   }
 
   let settings = {
@@ -88,7 +89,7 @@ const SimpleSlider = (props) => {
           const state = { stateParam: item._id };
           return (
             <div>
-              <Card sx={{ width: 240, height: 240 }} onClick={() => {SetSong(item._id); navigate(`/AlbumDetail`)} }>               
+              <Card sx={{ width: 240, height: 240 }} onClick={() => {handleCardClick(item._id)}}>               
                 <CardActionArea style={{ position: 'relative' }}>
                     <CardMedia
                         component="img"
@@ -98,19 +99,18 @@ const SimpleSlider = (props) => {
                     />
                     <IconButton style={{ position: 'absolute', top: '90%', left: '10%', transform: 'translate(-50%, -50%)', color: "white"}}>
                     <PlayCircleIcon
-                        onClick={item._id != null ? () => {setSongId(item._id); handleMusic(); } : null}
                         fontSize="large"
                     />
                     </IconButton>
                 </CardActionArea>
               </Card>
-              <h5 className="cardTitle">{item.title}</h5>
+              <p className="cardTitle">{item.title}</p>
             </div>
           );
         })}
       </Slider>
     </div>
   );
-};
+}
 
 export default SimpleSlider;

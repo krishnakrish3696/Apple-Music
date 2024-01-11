@@ -41,7 +41,7 @@ function AlbumDetail() {
     return (
         <div className="Detail">
             <div className="DetailTopSection">
-                <div className="Detailcard">
+                <div className="Detailcard" style={{position: "sticky"}}>
                     <Card sx={{ maxWidth: 270}}>
                         <CardActionArea>
                             <CardMedia
@@ -53,7 +53,7 @@ function AlbumDetail() {
                         </CardActionArea>
                     </Card>
                 </div>
-                <div className="AlbumTitle">
+                <div className="AlbumTitle" style={{position: "sticky"}}>
                     <h1>{songsData.title}</h1>
                     <p>{artistData.name}</p>
                     <p id="songMoodandYear">{songsData.mood}</p>

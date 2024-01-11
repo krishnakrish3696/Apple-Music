@@ -29,18 +29,6 @@ const theme = createTheme({
   },
 });
 
-const Style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
 export default function UseModal() {
   const [open, setOpen] = React.useState(false);
   const [showSignUpModal, setShowSignUpModal] = React.useState(false);
@@ -106,28 +94,53 @@ const handlesubmit = (e) => {
           }
           return res.json(); // Assuming the response is in JSON format
       }).then((data) => {
-          // Store the response data in local storage
-          // localStorage.setItem("Username", name);
-          // localStorage.setItem("Email", email);
-          // localStorage.setItem("Token", data.token); // Store the response data
           localStorage.setItem("Token",data.token);
           localStorage.setItem("UserData",JSON.stringify(data.data.user));
-
           toast.success('Registered successfully.');
           window.location.reload();
       }).catch((err) => {
           toast.error('Failed: ' + err.message);
       });
-    //  navigate(`/`);
-      
       setShowSignUpModal(false);
       setOpen(false);
   }
 }
 
+const handleContinue = (e) => {
+  e.preventDefault();
+  let signinObj = { email, password, appType };
+  if(email != null || email != '' && password != null || password != '')
+  {
+    fetch("https://academics.newtonschool.co/api/v1/user/login", {
+          method: "POST",
+          headers: {
+              'content-type': 'application/json',
+              'projectID': 'knjxpr9vh9wr'
+          },
+          body: JSON.stringify(signinObj)
+      }).then((res) => {
+          if (!res.ok) {
+              throw new Error(`HTTP error! Status: ${res.status}`);
+          }
+          return res.json(); // Assuming the response is in JSON format
+      }).then((data) => {
+          localStorage.setItem("Token",data.token);
+          localStorage.setItem("UserData",JSON.stringify(data.data.user));
+          toast.success('Registered successfully.');
+          window.location.reload();
+          setShowSignUpModal(false);
+          setOpen(false);
+      }).catch((err) => {
+          toast.error('Failed: ' + err.message);
+      });
+
+  }
+
+}
+
   return (
     <div> 
-      <TriggerButton onClick={handleOpen}>Sign In</TriggerButton> 
+      <TriggerButton id="Siginbtn" onClick={handleOpen}>Sign In</TriggerButton> 
       {!showSignUpModal && Username === null && (
       <Modal
         id="SignInModel"
@@ -164,6 +177,7 @@ const handlesubmit = (e) => {
                   id="outlined-basic"
                   label="Email or Apple ID"
                   variant="outlined"
+                  required value={email} onChange={e => emailchange(e.target.value)} 
                 />
               </Box>
             </div>
@@ -180,6 +194,7 @@ const handlesubmit = (e) => {
                   id="outlined-basic"
                   label="Password"
                   variant="outlined"
+                  required value={password} onChange={e => passwordchange(e.target.value)}
                 />
               </Box>
             </div>
@@ -195,7 +210,7 @@ const handlesubmit = (e) => {
             </div>
             <div className="btnClass">
               <ThemeProvider theme={theme}>
-                <Btn className="continuebtn" variant="contained">
+                <Btn className="continuebtn" variant="contained" onClick={handleContinue}>
                   Continue
                 </Btn>
               </ThemeProvider>

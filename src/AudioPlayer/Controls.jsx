@@ -64,7 +64,7 @@ function Controls() {
     }
 
     useEffect(()=>{
-      if(audioRef){
+      if(audioRef.current){
           audioRef.current.volume = volume / 100;
       }
       if(isPlaying){
@@ -119,6 +119,10 @@ function Controls() {
           );
           const response = await data.json();
           setSong(response.data);
+          if(response.data)
+          {
+              setIsPlaying(true);
+          }
         } catch (error) {
           console.error("Error fetching song data:", error);
         }
@@ -127,6 +131,9 @@ function Controls() {
     useEffect(() => {
         getSongData();
       },[song]);
+    useEffect(() => {
+      getSongData();
+    },[]);
 
       function VolumeBtns(){
         return mute
@@ -135,10 +142,9 @@ function Controls() {
             : volume <= 75 ? <VolumeDownIcon sx={{color: 'Gray', '&:hover': {color: 'Black'}}} onClick={() => setMute(!mute)} />
             : <VolumeUpIcon sx={{color: 'Gray', '&:hover': {color: 'Black'}}} onClick={() => setMute(!mute)} />
       }
-
   return (
     <div className='Topbarsection'>
-        <div className="MusicPlayersection">
+        {/* <div className="MusicPlayersection">
             <div className="Shuffle">
                 <IconButton> <ShuffleIcon fontSize="small"/></IconButton>
             </div>
@@ -146,7 +152,7 @@ function Controls() {
                 <IconButton> <FastRewindIcon onClick={toggleSkipBackward} fontSize="Medium" /></IconButton>
             </div>
             <div className="Play/Pause">
-                {isPlaying && currentSong  ? (<IconButton> <PauseIcon onClick={togglePlay} fontSize='Large' /></IconButton>) : (<IconButton> <PlayArrowIcon onClick={togglePlay} /> </IconButton>)}
+                {isPlaying ? (<IconButton> <PauseIcon onClick={togglePlay} fontSize='Large' /></IconButton>) : (<IconButton> <PlayArrowIcon onClick={togglePlay} /> </IconButton>)}
             </div>
             <div className="FastForward">
                 <IconButton> <FastForwardIcon onClick={toggleSkipForward} fontSize="Medium" /></IconButton>
@@ -154,7 +160,44 @@ function Controls() {
             <div className="Loop">
                 <IconButton> <LoopIcon fontSize="small" /></IconButton>
             </div>
+        </div> */}
+        <div className="MusicPlayersection">
+        <div className="Shuffle">
+            <IconButton disabled={!currentSong?.audio_url}>
+                <ShuffleIcon style={{ fontSize: 'large' }}/>
+            </IconButton>
         </div>
+        <div className="FastRewind">
+            <IconButton disabled={!currentSong?.audio_url}>
+                <FastRewindIcon onClick={toggleSkipBackward} style={{ fontSize: 'large' }} />
+            </IconButton>
+        </div>
+        <div className="Play/Pause">
+            {currentSong?.audio_url ? (
+                <IconButton>
+                    {isPlaying ? (
+                        <PauseIcon onClick={togglePlay} style={{ fontSize: 'large'}} />
+                    ) : (
+                        <PlayArrowIcon style={{ fontSize: 'large'}}  onClick={togglePlay} />
+                    )}
+                </IconButton>
+            ) : (
+                <IconButton disabled>
+                    <PlayArrowIcon style={{ fontSize: 'large'}}  />
+                </IconButton>
+            )}
+        </div>
+        <div className="FastForward">
+            <IconButton disabled={!currentSong?.audio_url}>
+                <FastForwardIcon onClick={toggleSkipForward} style={{ fontSize: 'large' }}/>
+            </IconButton>
+        </div>
+        <div className="Loop">
+            <IconButton disabled={!currentSong?.audio_url}>
+                <LoopIcon style={{ fontSize: 'large' }} />
+            </IconButton>
+        </div>
+    </div>
         <div className="Music">
           <div className="logo">
             {currentSong && currentSong?.thumbnail ? (
@@ -186,14 +229,14 @@ function Controls() {
         <div className='VolumSlider'>
             <Box sx={{ width: 100 }}>
               <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
-                <VolumeBtns fontSize="small"/>
+                <VolumeBtns style={{ fontSize: 'medium'}}/>
                 <PSlider min={0} max={100} value={volume} onChange={(e, v) => setVolume(v)}/>
               </Stack>
             </Box>
         </div>
         <div className='signin'>
           {Username == null ? (
-            <UseModal />
+            <UseModal className='logout' />
           ) : (
             <button className='logout' onClick={handleLogout}>LogOut</button>
           )}

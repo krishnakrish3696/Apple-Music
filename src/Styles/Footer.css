@@ -1,0 +1,12 @@
+.footer{
+    background-color: black;
+    width: 100%;
+    top: 250px;
+
+    height: 250px;
+    position: relative;
+    overflow-y: auto;
+    position: absolute;
+    flex-grow: 1;
+    z-index: 1;
+}

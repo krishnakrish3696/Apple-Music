@@ -16,30 +16,30 @@ import '../Styles/leftPanel.css';
 const Menulist = [
     {
         id:1,
-        icon: <IconButton> <WatchLaterOutlinedIcon fontSize='small'/> </IconButton>,
-        name: "Recently Saved",
+        icon: <IconButton style={{ color: 'red' }}> <WatchLaterOutlinedIcon fontSize='small'/> </IconButton>,
+        name: "My Favourites",
     },
 ];
 
 const PlayListItems = [
     {
         id:1,
-        icon:<IconButton> <QueueMusicIcon fontSize='small'/> </IconButton>,
+        icon:<IconButton style={{ color: 'red' }}> <QueueMusicIcon fontSize='small'/> </IconButton>,
         name: "Romantic!",
     },
     {
         id:2,
-        icon:<IconButton> <QueueMusicIcon fontSize='small'/> </IconButton>,
+        icon:<IconButton style={{ color: 'red' }}> <QueueMusicIcon fontSize='small'/> </IconButton>,
         name: "Happy!",
     },
     {
         id:3,
-        icon:<IconButton> <QueueMusicIcon fontSize='small'/> </IconButton>,
+        icon:<IconButton style={{ color: 'red' }}> <QueueMusicIcon fontSize='small'/> </IconButton>,
         name: "Sad",
     },
     {
         id:4,
-        icon:<IconButton> <AddIcon fontSize='small'/> </IconButton>,
+        icon:<IconButton style={{ color: 'red' }}> <AddIcon fontSize='small'/> </IconButton>,
         name: "Excited",
     },
 ];
@@ -68,7 +68,7 @@ function playlistname(id)
 
 function LeftPanel() {
   const [results, setResults] = useState([]);
-  const navigate = useNavigate();
+  const Token = localStorage.getItem("Token");
   return (
     <div className="leftMenu">                
         <div className = "logoContainer" >
@@ -84,10 +84,10 @@ function LeftPanel() {
         <div className="BrowseSection">
             <button className="BrowseButton" type="submit">Browse</button>
             <i className="BrowseIcon">
-                <BrowseIcon/>
+                <BrowseIcon id="Browse-btn" color='red'/>
             </i>
         </div>
-
+        {Token?
         <div className="listsContainer">
             <p className="title">LIBRARY</p>
             <ul>
@@ -96,13 +96,15 @@ function LeftPanel() {
                     <li>
                         {" "}
                         <a href="#">
+                        <Link to={{ pathname: "MyFav" }}>
                             <i>{menu.icon}</i>
                             <span>{menu.name}</span>
+                            </Link>
                         </a>
                     </li>
                 ))}
             </ul>
-        </div>
+        </div> : null }
         
         <div className="listsContainer">
             <p className="title">PlayList</p>
@@ -113,14 +115,14 @@ function LeftPanel() {
                         <a href="#">
                             <Link to={{ pathname: "AllCards", 
                             search: playlistname(playlist.id) }}>
-                                <i>{playlist.icon}</i>
+                                <i className="PlaylistIcon">{playlist.icon}</i>
                                 <span>{playlist.name}</span>
                             </Link>
                         </a>
                     </li>
                 ))}
             </ul>
-        </div>
+        </div>     
     </div>
   )
 }

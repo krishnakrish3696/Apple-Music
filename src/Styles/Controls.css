@@ -9,12 +9,15 @@
     position: relative;
     transition: all 0.3s ease;
     display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+
 }
 
 .Topbarsection .MusicPlayersection {
     width: 250px;
     display: flex;
-    padding-left: 150px;    
+    padding-left: 150px;  
+    padding-top: 5px;  
 }
 
 .Topbarsection .Volumebar{
@@ -34,7 +37,7 @@
     height: 40px;
     width: 500px;
     margin-left: 100px; 
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     background-color: lightgray;
 }
 
@@ -65,23 +68,22 @@ input[type="range"] {
     position: relative;
     width: 500px;
     text-align: center;
-    top: -60px;
+    top: -48px;
 }
 
 .songTitle p {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 13px;
 }
 
 .songDescription{
     position: relative;
     width: 500px;
     text-align: center;
-    top: -72px;
+    top: -62px;
 }
 
 .songDescription p {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .VolumSlider{
@@ -91,11 +93,11 @@ input[type="range"] {
 
 .MusicPlay{
     position: relative;
-    top: -94px;
+    top: -85px;
 }
 
 .signin{
-    margin-left: 300px;
+    margin-left: 330px;
     margin-top: 3px;
 }
 
@@ -104,7 +106,7 @@ input[type="range"] {
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 1.5;
-    padding: 8px 16px;
+    padding: 4px 14px;
     border-radius: 8px;
     color: white;
     -webkit-transition: all 150ms ease;

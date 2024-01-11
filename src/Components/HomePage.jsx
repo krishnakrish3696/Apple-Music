@@ -26,7 +26,7 @@ function HomePage() {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 4,
         initialSlide: 0,
         responsive: [
@@ -42,9 +42,9 @@ function HomePage() {
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              initialSlide: 3,
             },
           },
           {
@@ -74,8 +74,6 @@ function HomePage() {
 
     return(
         <div className="MainContainersection">
-
-
             <div className="BrowserBanner">
                 <h1>
                     Browse
@@ -87,32 +85,31 @@ function HomePage() {
                             return (
                                 <div>
                                     <div className="AlbumTitleandDescription">
-                                        <h4>
-                                            {item.description}
-                                        </h4>
-                                        <p>
-                                            {item.title}
+                                    <p>
+                                        {item.title}
+                                    </p>
+                                    {item.artists.slice(0, 2).map((data, index) => (
+                                        <p key={index} id="artistname" style={{ display: 'inline-block'}}>
+                                            {data.name},
                                         </p>
+                                    ))}
                                     </div>
-                                <Card sx={{ maxWidth: 750 }}>
-                                    <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        height="400"
-                                        image={item.image}
-                                        alt="green iguana"
-                                    />
-                                    </CardActionArea>
-                                </Card>
+                                    <Card sx={{ maxWidth: 500 }}>
+                                        <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            height="300"
+                                            image={item.image}
+                                            alt="green iguana"
+                                        />
+                                        </CardActionArea>
+                                    </Card>
                                 </div>
                             );
                         })}
                     </Slider>
                </div>
             </div>
-
-
-
             <div className="NewMusicAlbum">
                 <h3>
                     New Music

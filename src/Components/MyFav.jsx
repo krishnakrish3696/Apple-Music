@@ -9,9 +9,8 @@ import IconButtonMenu from "./Moremenu";
 import IconButton from "@mui/material/IconButton";
 
 
-const SongsList = (props) => {
-  const mood = props.data;
-  const Token = localStorage.getItem("Token");
+const MyFav = (props) => {
+const Token = localStorage.getItem("Token");
   const navigate = useNavigate();
   const [songid, setSongId] = useState('');
   const {SetSongList} = useContext(SonglistContext);
@@ -19,16 +18,18 @@ const SongsList = (props) => {
   const [allsong, setAllSongs] = useState([]);
   async function getCatergoryData() {
     const data = await fetch(
-      `https://academics.newtonschool.co/api/v1/music/song?filter={"mood":"${mood}"}`,
+      `https://academics.newtonschool.co/api/v1/music/favorites/like`,
       {
         headers: {
+          'Authorization': `Bearer ${Token}`,
           projectId: "knjxpr9vh9wr",
         },
       }
     );
     const response = await data.json();
-    setAllSongs(response.data);
-    SetSongList(response.data);
+    console.log(response.data._id);
+    // setAllSongs(response.data);
+    // SetSongList(response.data);
   }
 
   useEffect(() => {
@@ -41,6 +42,7 @@ const SongsList = (props) => {
   }
   
   return (
+    <>
     <Container>
        <div className="list">
           <div className="header-row">
@@ -92,10 +94,11 @@ const SongsList = (props) => {
             </div>
        </div>
     </Container>
+    </>
   );
 };
 
-export default SongsList;
+export default MyFav;
 
 
 const Container = styled.div`

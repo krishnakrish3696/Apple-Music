@@ -10,6 +10,8 @@ import PlayerContextProvider from './Context/PlayerContextProvider';
 import MyAccount from './Components/MyAccount';
 import ProtectedRoute from './ProtectedRoute';
 import AllCards from './Components/AllCards';
+import MyFav from './Components/MyFav';
+import Footer from './Components/Footer';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +19,7 @@ const router = createBrowserRouter(
       <Route path='' element={<HomePage/>}></Route>
       <Route path='AlbumDetail' element={<AlbumDetail/>}></Route>
       <Route exact path="AllCards" Component={AllCards}></Route>  
+      <Route exact path="MyFav" Component={MyFav}></Route>  
     </Route>
   )
 )
