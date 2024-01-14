@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { FavContext, SonglistContext } from "../Context/PlayerContext";
 import PlayerContext from "../Context/PlayerContext";
 import IconButtonMenu from "./Moremenu";
-import IconButton from "@mui/material/IconButton";
+import Artists from "./Artist";
+import '../Styles/MyFav.css';
 
 
 const MyFav = (props) => {
@@ -16,6 +17,7 @@ const Token = localStorage.getItem("Token");
   const {SetSongList} = useContext(SonglistContext);
   const {SetSong} = useContext(PlayerContext);
   const [allsong, setAllSongs] = useState([]);
+  const [artistname, setartistname] = useState('');
   async function getCatergoryData() {
     const data = await fetch(
       `https://academics.newtonschool.co/api/v1/music/favorites/like`,
@@ -27,22 +29,27 @@ const Token = localStorage.getItem("Token");
       }
     );
     const response = await data.json();
-    console.log(response.data._id);
-    // setAllSongs(response.data);
-    // SetSongList(response.data);
+    setAllSongs(response.data.songs);
+    SetSongList(response.data.songs);
+    console.log(response.data.songs[0].artist);
+  }
+
+  const handlerowclick = (id) =>{
+    setSongId(id);
+    handleMusic();
   }
 
   useEffect(() => {
     getCatergoryData();
   },[props.data]);
 
-  
+
   const handleMusic = () => {
     SetSong({songid})
   }
-  
+
   return (
-    <>
+    <div className="MyFav">
     <Container>
        <div className="list">
           <div className="header-row">
@@ -66,11 +73,11 @@ const Token = localStorage.getItem("Token");
             </div>
             <div className="tracks">
             {allsong?.map((item, index) => (
-              <div className="row" key={index} onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>
-                <div className="col">
+              <div className="row" key={index}>
+                <div className="col" onClick={() => handlerowclick(item._id)}>
                   <span>{index + 1}</span>
                 </div>
-                <div className="col detail">
+                <div className="col detail" onClick={() => handlerowclick(item._id)}>
                   <div className="image">
                     <img src={item.thumbnail} alt="track" />
                   </div>
@@ -78,12 +85,10 @@ const Token = localStorage.getItem("Token");
                     <span className="name">{item.title}</span>
                   </div>
                 </div>
-                <div className="col">
-                  {item.artist.map((data) => 
-                    <span key={data.id}>{data.name},</span>
-                  )}
-                </div>
-                <div className="col">
+                <div className="col" onClick={() => handlerowclick(item._id)}>
+                <Artists data={item._id}/>
+              </div>
+                <div className="col" onClick={() => handlerowclick(item._id)}>
                   <span>{<SongDurationComponent audioUrl={item.audio_url}/>}</span>
                 </div>
                 <div className="col">
@@ -94,7 +99,7 @@ const Token = localStorage.getItem("Token");
             </div>
        </div>
     </Container>
-    </>
+    </div>
   );
 };
 

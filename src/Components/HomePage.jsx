@@ -1,5 +1,6 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import '../Styles/HomePage.css';
 import '../Styles/slick.css';
 import '../Styles/slick-theme.css'
@@ -8,9 +9,14 @@ import CardMedia from "@mui/material/CardMedia";
 import Slider from "react-slick";
 import { CardActionArea } from "@mui/material";
 import SimpleSlider from './SimpleSlider';
+import { useNavigate } from "react-router-dom";
+import PlayerContext from "../Context/PlayerContext";
+import Footer from "./Footer";
 
 function HomePage() {
-  const [albums, setAlbums] = useState([])
+  const [albums, setAlbums] = useState([]);
+  const {SetSong} = useContext(PlayerContext);
+  const navigate = useNavigate();
     useEffect(() =>{
         fetch('https://academics.newtonschool.co/api/v1/music/album',{
             method:'GET',
@@ -84,6 +90,10 @@ function HomePage() {
                         {albums?.map((item) => {
                             return (
                                 <div>
+                                    <Link to={{
+                                        pathname: "AlbumDetail2",
+                                        search: item._id,
+                                        }}>
                                     <div className="AlbumTitleandDescription">
                                     <p>
                                         {item.title}
@@ -94,17 +104,19 @@ function HomePage() {
                                         </p>
                                     ))}
                                     </div>
-                                    <Card sx={{ maxWidth: 500 }}>
+                                    <Card sx={{ maxWidth: 500, borderRadius: 3 }}>
                                         <CardActionArea>
                                         <CardMedia
                                             component="img"
-                                            height="300"
+                                            height="280"
                                             image={item.image}
                                             alt="green iguana"
                                         />
                                         </CardActionArea>
                                     </Card>
+                                    </Link>
                                 </div>
+                                
                             );
                         })}
                     </Slider>
@@ -120,6 +132,9 @@ function HomePage() {
                         Moods.map((item)=> <SimpleSlider categories={item} />)
                     }
                 </div>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </div>
     )

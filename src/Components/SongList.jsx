@@ -64,11 +64,11 @@ const SongsList = (props) => {
             </div>
             <div className="tracks">
             {allsong?.map((item, index) => (
-              <div className="row" key={index} onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>
-                <div className="col">
+              <div className="row" key={index}>
+                <div className="col" onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>
                   <span>{index + 1}</span>
                 </div>
-                <div className="col detail">
+                <div className="col detail" onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>
                   <div className="image">
                     <img src={item.thumbnail} alt="track" />
                   </div>
@@ -76,12 +76,12 @@ const SongsList = (props) => {
                     <span className="name">{item.title}</span>
                   </div>
                 </div>
-                <div className="col">
+                <div className="col" onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>
                   {item.artist.map((data) => 
                     <span key={data.id}>{data.name},</span>
                   )}
                 </div>
-                <div className="col">
+                <div className="col" onClick={() => {setSongId(item._id); navigate(`/AlbumDetail`); handleMusic()}}>
                   <span>{<SongDurationComponent audioUrl={item.audio_url}/>}</span>
                 </div>
                 <div className="col">

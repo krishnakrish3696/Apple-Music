@@ -73,7 +73,11 @@ function LeftPanel() {
     <div className="leftMenu">                
         <div className = "logoContainer" >
             <i>
-                <CloudQueueIcon/>
+            <img
+                id="Songlogo"
+                src="https://visualpharm.com/assets/62/Apple-595b40b75ba036ed117d984c.svg"
+                alt="Cover"
+              />
             </i>
             <h2>Music</h2>
         </div>
@@ -96,9 +100,9 @@ function LeftPanel() {
                     <li>
                         {" "}
                         <a href="#">
-                        <Link to={{ pathname: "MyFav" }}>
-                            <i>{menu.icon}</i>
-                            <span>{menu.name}</span>
+                            <Link to={{ pathname: "MyFav" }}>
+                                <i>{menu.icon}</i>
+                                <span>{menu.name}</span>
                             </Link>
                         </a>
                     </li>

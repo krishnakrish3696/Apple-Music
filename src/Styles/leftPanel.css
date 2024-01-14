@@ -1,3 +1,4 @@
+/* Common styles for all screen sizes */
 .leftMenu {
     width: 246px;
     height: 100%;
@@ -10,26 +11,26 @@
     padding-right: 25px;
     overflow: hidden;
     transition: all 0.3s ease;
-    font-family: -apple-system,BlinkMacSystemFont,Apple Color Emoji,SF Pro,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
-    font-weight: 600;  
+    font-family: -apple-system, BlinkMacSystemFont, Apple Color Emoji, SF Pro, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 600;
 }
 
 .leftMenu .logoContainer {
     color: black;
     display: flex;
     align-items: center;
-}    
+}
 
-.leftMenu .logoContainer i{
+.leftMenu .logoContainer i {
     font-size: 15px;
     padding-right: 10px;
 }
 
-.leftMenu .logoContainer h2{
+.leftMenu .logoContainer h2 {
     font-size: 20px;
 }
 
-.searchBox{
+.searchBox {
     width: 100%;
     height: 100%;
     background-color: lightgray;
@@ -40,7 +41,7 @@
     border-radius: 3px;
 }
 
-.searchBox input{
+.searchBox input {
     width: 100%;
     height: 100%;
     outline: none;
@@ -48,7 +49,7 @@
     padding-left: 45px;
 }
 
-.searchBox .searchIcon{
+.searchBox .searchIcon {
     position: absolute;
     width: 45px;
     height: 45px;
@@ -60,7 +61,7 @@
     color: gray;
 }
 
-.BrowseSection{
+.BrowseSection {
     width: 100%;
     height: 30px;
     position: relative;
@@ -69,7 +70,7 @@
     border-radius: 10px;
 }
 
-.BrowseSection .BrowseButton{
+.BrowseSection .BrowseButton {
     width: 100%;
     height: 100%;
     outline: none;
@@ -77,11 +78,10 @@
     font-size: 14px;
     font-weight: 550;
     padding-left: 0px;
-    font-family: -apple-system,BlinkMacSystemFont,Apple Color Emoji,SF Pro,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Apple Color Emoji, SF Pro, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.BrowseSection .BrowseIcon{
-    
+.BrowseSection .BrowseIcon {
     position: absolute;
     width: 45px;
     height: 30px;
@@ -102,7 +102,7 @@
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 10px;
-    font-family: -apple-system,BlinkMacSystemFont,Apple Color Emoji,SF Pro,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Apple Color Emoji, SF Pro, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     text-transform: uppercase;
 }
 
@@ -115,26 +115,26 @@
     list-style: none;
 }
 
-.listsContainer ul li a{
+.listsContainer ul li a {
     text-decoration: none;
     color: gray;
     font-size: 15px;
     top: 0px;
 }
 
-.listsContainer ul li a i{
+.listsContainer ul li a i {
     padding-right: 10px;
     font-size: medium;
     color: red;
 }
 
-.listsContainer ul li a span{
+.listsContainer ul li a span {
     font-weight: 600;
     font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: rgba(0,0,0,.88);
+    color: rgba(0, 0, 0, .88);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -146,9 +146,55 @@
     flex-direction: column;
     align-items: center;
     min-width: 200px;
-  }
+}
 
-  #Browse-btn
-  {
+#Browse-btn {
     font-size: medium;
-  }
+}
+
+#Songlogo{
+    font-size: small;
+}
+
+/* Responsive styles using media queries */
+@media only screen and (max-width: 768px) {
+    .leftMenu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, .15);
+        padding: 10px;
+    }
+
+    .leftMenu .logoContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar-container {
+        width: 80%;
+    }
+
+    .BrowseSection .BrowseButton {
+        font-size: 12px;
+    }
+
+    .BrowseSection .BrowseIcon {
+        font-size: 8px;
+    }
+
+    .listsContainer ul li a {
+        font-size: 14px;
+    }
+
+    .listsContainer .title {
+        font-size: 10px;
+    }
+
+    .listsContainer ul li a i {
+        font-size: small;
+    }
+
+    #Browse-btn {
+        font-size: small;
+    }
+}

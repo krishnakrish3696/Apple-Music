@@ -10,6 +10,7 @@ import { CardActionArea } from "@mui/material";
 import "../Styles/AllCards.css";
 import { SonglistContext } from "../Context/PlayerContext";
 import PlayerContext from "../Context/PlayerContext";
+import Footer from "./Footer";
 
 function AllCards () {
     const location = useLocation();

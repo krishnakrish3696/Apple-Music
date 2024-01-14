@@ -1,4 +1,5 @@
-.Topbarsection{
+/* Common styles for all screen sizes */
+.Topbarsection {
     width: 100%;
     height: 46px;
     background-color: rgba(241, 239, 239, .6);
@@ -10,63 +11,67 @@
     transition: all 0.3s ease;
     display: flex;
     border-bottom: 1px solid rgba(0, 0, 0, .15);
-
 }
 
 .Topbarsection .MusicPlayersection {
-    width: 250px;
+    width: 25%;
     display: flex;
-    padding-left: 150px;  
-    padding-top: 5px;  
+    padding-left: 150px;
+    padding-top: 5px;
 }
 
-.Topbarsection .Volumebar{
+.Topbarsection .Volumebar {
     padding-right: 100px;
     padding-left: 50px;
     color: white;
+    width: 20%;
 }
 
-.Signin{
-    width: 400px;
-    padding-right: 50px;
-    padding-left: 200px;
+.Signin {
+    width: 20%;
+    max-width: 400px;
+    padding-right: 20px;
+    padding-left: 20px;
     display: flex;
-
+    justify-content: flex-end;
+    align-items: center;
 }
-.Music{
+
+.Music {
     height: 40px;
-    width: 500px;
-    margin-left: 100px; 
+    width: 30%;
     margin-bottom: 0px;
     background-color: lightgray;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 input[type="range"] {
-    accent-color:black;
+    accent-color: black;
     top: -17px;
-    width: 462px;
+    width: 100%;
     max-width: 900px;
-    margin-left: 44px;
+    margin-left: 20px;
     left: -5px;
     height: 1px;
     grid-area: track;
     position: relative;
 }
 
-.logo{
+.logo {
     display: flex;
     width: 36px;
     height: 36px;
 }
 
-#Songlogo{
+#Songlogo {
     width: 36px;
     height: 36px;
 }
 
-.songTitle{
+.songTitle {
     position: relative;
-    width: 500px;
+    width: 100%;
     text-align: center;
     top: -48px;
 }
@@ -75,9 +80,9 @@ input[type="range"] {
     font-size: 13px;
 }
 
-.songDescription{
+.songDescription {
     position: relative;
-    width: 500px;
+    width: 100%;
     text-align: center;
     top: -62px;
 }
@@ -86,34 +91,77 @@ input[type="range"] {
     font-size: 13px;
 }
 
-.VolumSlider{
-    padding-left: 50px;
+.VolumSlider {
+    padding-left: 20px;
     padding-top: 7px;
 }
 
-.MusicPlay{
+.MusicPlay {
     position: relative;
     top: -85px;
 }
 
-.signin{
-    margin-left: 330px;
+.signin {
+    margin-left: auto;
+    margin-right: 20px;
     margin-top: 3px;
 }
 
-.logout{
-    font-family: IBM Plex Sans,sans-serif;
+.logout {
+    font-family: IBM Plex Sans, sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 1.5;
     padding: 4px 14px;
     border-radius: 8px;
     color: white;
-    -webkit-transition: all 150ms ease;
-    transition: all 150ms ease;
     cursor: pointer;
     background: #fff;
     border: 1px solid #DAE2ED;
     color: #1C2025;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.applelogo{
+    padding-left: 50%;
+}
+
+/* Responsive styles using media queries */
+@media only screen and (max-width: 768px) {
+    .Topbarsection {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .Topbarsection .MusicPlayersection {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .Topbarsection .Volumebar {
+        padding-right: 20px;
+        padding-left: 10px;
+    }
+
+    .Signin {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .Music {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    input[type="range"] {
+        margin-left: 10px;
+    }
+
+    .VolumSlider {
+        padding-left: 10px;
+    }
+
+    .logout {
+        padding: 4px 10px;
+    }
 }

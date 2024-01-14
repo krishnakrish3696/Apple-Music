@@ -8,6 +8,7 @@ import { useContext } from "react";
 import '../Styles/AlbumDetail.css';
 import PlayerContext from "../Context/PlayerContext";
 import SongsList from "./SongList";
+import Footer from "./Footer";
 
 
 function AlbumDetail() {
@@ -62,6 +63,9 @@ function AlbumDetail() {
             </div>
             <div className="songlist">
                 <SongsList data={songsData.mood}/>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </div>
     );

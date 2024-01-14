@@ -40,7 +40,6 @@ const PSlider = styled(Slider)(({theme, ...props}) => ({
 function Controls() {
     const [mute, setMute] = useState(false);
     const audioRef = useRef(null);
-   // const [index, setIndex] = useState(0);
      let index = 0;
     const {song} = useContext(PlayerContext);
     const {SetSong} = useContext(PlayerContext);
@@ -110,7 +109,7 @@ function Controls() {
     async function getSongData() {
         try {
           const data = await fetch(
-            `https://academics.newtonschool.co/api/v1/music/song/${song.songid}`,
+            `https://academics.newtonschool.co/api/v1/music/song/${song?.songid}`,
             {
               headers: {
                 projectId: "knjxpr9vh9wr",
@@ -144,23 +143,6 @@ function Controls() {
       }
   return (
     <div className='Topbarsection'>
-        {/* <div className="MusicPlayersection">
-            <div className="Shuffle">
-                <IconButton> <ShuffleIcon fontSize="small"/></IconButton>
-            </div>
-            <div className="FastRewind">
-                <IconButton> <FastRewindIcon onClick={toggleSkipBackward} fontSize="Medium" /></IconButton>
-            </div>
-            <div className="Play/Pause">
-                {isPlaying ? (<IconButton> <PauseIcon onClick={togglePlay} fontSize='Large' /></IconButton>) : (<IconButton> <PlayArrowIcon onClick={togglePlay} /> </IconButton>)}
-            </div>
-            <div className="FastForward">
-                <IconButton> <FastForwardIcon onClick={toggleSkipForward} fontSize="Medium" /></IconButton>
-            </div>
-            <div className="Loop">
-                <IconButton> <LoopIcon fontSize="small" /></IconButton>
-            </div>
-        </div> */}
         <div className="MusicPlayersection">
         <div className="Shuffle">
             <IconButton disabled={!currentSong?.audio_url}>
@@ -198,19 +180,16 @@ function Controls() {
             </IconButton>
         </div>
     </div>
+    {currentSong && currentSong?.thumbnail?
         <div className="Music">
           <div className="logo">
             {currentSong && currentSong?.thumbnail ? (
               <img id="Songlogo" src={currentSong?.thumbnail} alt="Cover" />
             ) : (
-              <img
-                id="Songlogo"
-                src="https://visualpharm.com/assets/62/Apple-595b40b75ba036ed117d984c.svg"
-                alt="Cover"
-              />
+             null
             )}
           </div>
-          {currentSong ? <audio src={currentSong.audio_url} ref={audioRef} autoPlay={true} muted={mute} /> : null}
+          {currentSong ? <audio src={songlist[index]?.audio_url} ref={audioRef} autoPlay={true} muted={mute} /> : null}
 
           <div className="songTitle">
             {currentSong && currentSong?.title ? <p>{currentSong?.title}</p> : null}
@@ -219,13 +198,25 @@ function Controls() {
             {currentSong && currentSong?.mood ? <p>{currentSong?.mood}</p> : null}
           </div>
           <div className='MusicPlay'> 
-            <Box sx={{ width: 500}}>
+          {currentSong ?
+            <Box sx={{ width: 490}}>
               <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
-                <PSlider thumbless value={elapsed} max={duration}/>
+                {elapsed == duration? toggleSkipForward : null }
+                <PSlider thumbless value={elapsed} max={duration}></PSlider>
               </Stack>
             </Box>
+            : null}
           </div>
-        </div>
+        </div> :
+          <div className="Music">
+              <div className='applelogo'>
+              <img id="Songlogo"
+                  src="https://visualpharm.com/assets/62/Apple-595b40b75ba036ed117d984c.svg"
+                  alt="Cover"
+                />
+                </div>
+          </div>
+        }
         <div className='VolumSlider'>
             <Box sx={{ width: 100 }}>
               <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">

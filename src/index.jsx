@@ -12,12 +12,14 @@ import ProtectedRoute from './ProtectedRoute';
 import AllCards from './Components/AllCards';
 import MyFav from './Components/MyFav';
 import Footer from './Components/Footer';
+import AlbumDetail2 from './Components/AlbumDetail2';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
       <Route path='' element={<HomePage/>}></Route>
       <Route path='AlbumDetail' element={<AlbumDetail/>}></Route>
+      <Route path='AlbumDetail2' element={<AlbumDetail2/>}></Route>
       <Route exact path="AllCards" Component={AllCards}></Route>  
       <Route exact path="MyFav" Component={MyFav}></Route>  
     </Route>

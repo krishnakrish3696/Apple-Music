@@ -1,100 +1,160 @@
-.MainContainersection{
-    top: 80px;
-    height: 100%;
-    overflow-y: auto;
-    max-width: 1600px;
-    margin-left: 288px;
-    position: absolute;
-    flex-grow: 1;
-    z-index: 1;
-    padding: 20px; 
-  }
-  
-  .MainContainersection .BrowserBanner h1 {
-      margin-top: 0px;
-      margin-bottom: 0px;
-      font-size: 34px;
-      font-weight: 620;
-      grid-column: 1/-1;
-      grid-row: 1;
-      letter-spacing: 0;
-      line-height: 1.17649;
-      color: rgba(0,0,0,.88);
-  }
-
-  .MainContainersection .NewMusicAlbum{
-      padding-left: 0px;
-      padding-top: 50px;
-      padding-bottom: 150px;
-  }
-
-  .MainContainersection .NewMusicAlbum h3{
-    margin-top: 0px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 620;
-    grid-column: 1/-1;
-    grid-row: 1;
-    letter-spacing: 0;
-    line-height: 1.17649;
-    color: rgba(0,0,0,.88);
+/* Common styles for all screen sizes */
+.MainContainersection {
+  top: 80px;
+  height: 100%;
+  overflow-y: auto;
+  max-width: 1650px;
+  margin-left: 262px;
+  position: absolute;
+  flex-grow: 1;
+  z-index: 1;
 }
 
-.MainContainersection .NewMusicAlbum hr{
+.MainContainersection .BrowserBanner {
+  margin-left: 40px;
+}
+
+.MainContainersection .NewMusicAlbum {
+  margin-left: 40px;
+}
+
+.MainContainersection .BrowserBanner h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 34px;
+  font-weight: 620;
+  grid-column: 1/-1;
+  grid-row: 1;
+  letter-spacing: 0;
+  line-height: 1.17649;
+  color: rgba(0, 0, 0, .88);
+}
+
+.MainContainersection .NewMusicAlbum {
+  padding-left: 0px;
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+.MainContainersection .NewMusicAlbum h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 620;
+  grid-column: 1/-1;
+  grid-row: 1;
+  letter-spacing: 0;
+  line-height: 1.17649;
+  color: rgba(0, 0, 0, .88);
+}
+
+.MainContainersection .NewMusicAlbum hr {
   margin-bottom: 20px;
 }
-  
-  .AlbumTitleandDescription h4{
-    font-size: 20px;
-    margin-bottom: 0px;
+
+.AlbumTitleandDescription h4 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.AlbumTitleandDescription p {
+  font-size: 20px;
+  margin-bottom: 0px;
+  color: black;
+  margin-top: 5px;
+}
+
+#artistname {
+  font-size: 15px;
+  color: gray;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#catergoryname {
+  text-decoration: none;
+  font-size: 17px;
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.AlbumTitleandDescription h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: 620;
+  grid-column: 1/-1;
+  grid-row: 1;
+  letter-spacing: 0;
+  line-height: 1.17649;
+  color: rgba(0, 0, 0, .88);
+}
+
+.cardTitle {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-size: 12px;
+  font-weight: 420;
+  grid-column: 1/-1;
+  grid-row: 1;
+  letter-spacing: 0;
+  line-height: 1.17649;
+  color: rgba(0, 0, 0, .88);
+}
+
+#catergoryname {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Responsive styles using media queries */
+@media only screen and (max-width: 768px) {
+  .MainContainersection {
+      margin-left: 0;
+      padding: 10px;
   }
-  
-  .AlbumTitleandDescription p{
-    font-size: 20px;  
-    margin-bottom: 0px;
-    color: black;  
-    margin-top: 5px;
+
+  .MainContainersection .BrowserBanner h1 {
+      font-size: 24px;
   }
-    
-  #artistname{
-    font-size: 15px;  
-    color: gray;  
-    margin-top: 5px;
-    margin-bottom: 10px;
+
+  .MainContainersection .NewMusicAlbum {
+      padding-top: 20px;
+      padding-bottom: 80px;
   }
-  
-  #catergoryname{
-    text-decoration: none;
-    font-size: 17px;
-    color: black;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
+
+  .MainContainersection .NewMusicAlbum h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
   }
 
   .AlbumTitleandDescription h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 20px;
-    font-weight: 620;
-    grid-column: 1/-1;
-    grid-row: 1;
-    letter-spacing: 0;
-    line-height: 1.17649;
-    color: rgba(0,0,0,.88);
+      font-size: 18px;
   }
 
-  .cardTitle{
-    margin-top: 10px;
-    margin-bottom: 50px;
-    font-size: 12px;
-    font-weight: 420;
-    grid-column: 1/-1;
-    grid-row: 1;
-    letter-spacing: 0;
-    line-height: 1.17649;
-    color: rgba(0,0,0,.88);
+  .AlbumTitleandDescription p {
+      font-size: 18px;
   }
 
-  #catergoryname{
-    font-size: 18px;
-    font-weight: 600;
+  #artistname {
+      font-size: 14px;
+      margin-bottom: 5px;
   }
+
+  #catergoryname {
+      font-size: 16px;
+  }
+
+  .cardTitle {
+      margin-top: 5px;
+      margin-bottom: 30px;
+      font-size: 10px;
+  }
+
+  .sx {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* IE8 */
+  }
+  
+}

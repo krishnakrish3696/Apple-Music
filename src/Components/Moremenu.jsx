@@ -46,7 +46,7 @@ const handleClick = async () =>{
       </MenuButton>
       <Menu>
         <MenuItem sx={{fontWeight:'bold'}}>Add to Playlist</MenuItem>
-      {Token? <MenuItem onClick={handleClick}>My Favourites</MenuItem> : null}
+      {Token? <MenuItem onClick={handleClick}>Add/Remove</MenuItem> : null}
       </Menu>
     </Dropdown>
     </>
