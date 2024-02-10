@@ -41,6 +41,7 @@ export default function UseModal() {
   const [passwordError, setPasswordError] = useState(false);
   const [nameError, setNameError] = useState(false);
   const Username = localStorage.getItem("Token");
+
   const IsValidate = () => {
     let isproceed = true;
     let errormessage = 'Please enter the value in ';
@@ -78,6 +79,7 @@ export default function UseModal() {
   };
 
 const handlesubmit = (e) => {
+  debugger;
   e.preventDefault();
   let regobj = { name, email, password, appType };
   if (IsValidate()) {
@@ -103,6 +105,10 @@ const handlesubmit = (e) => {
       });
       setShowSignUpModal(false);
       setOpen(false);
+  }
+  else
+  {
+    alert("Enter Valid Email and Password");
   }
 }
 
