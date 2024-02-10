@@ -131,6 +131,7 @@ const handleContinue = (e) => {
           setShowSignUpModal(false);
           setOpen(false);
       }).catch((err) => {
+          alert("Enter Valid Email and Password");
           toast.error('Failed: ' + err.message);
       });
 
