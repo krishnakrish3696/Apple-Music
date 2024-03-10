@@ -31,6 +31,7 @@ function AlbumDetail() {
               image: artist.image,
             };
           });
+          //Storing artist data an songs data in state variables
         setArtistData(artistData[0]);
         setSongsData(response.data);
       }

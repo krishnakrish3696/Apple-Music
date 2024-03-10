@@ -49,7 +49,7 @@ function AlbumDetail() {
       const handleMusic = () => {
         SetSong({songid})
       }
-
+      //Passing the song url to sng duration component to get the length of the song
     return (
         <div className="Detail">
             <div className="DetailTopSection">

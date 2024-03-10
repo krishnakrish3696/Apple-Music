@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+//By using the this componenet geting the artist detail by passing song id to API
 const Artists = (props) => {
   const songid = props.data; 
   console.log(songid);

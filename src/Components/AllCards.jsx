@@ -12,6 +12,7 @@ import { SonglistContext } from "../Context/PlayerContext";
 import PlayerContext from "../Context/PlayerContext";
 import Footer from "./Footer";
 
+//Here we rendered the all the songs based on the mood of the song as card format.
 function AllCards () {
     const location = useLocation();
     var id = location.search.slice(1);

@@ -65,7 +65,7 @@ function playlistname(id)
     }
     return name;
 }
-
+//Left panel contain audio browse and my fav part
 function LeftPanel() {
   const [results, setResults] = useState([]);
   const Token = localStorage.getItem("Token");

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import PlayerContext from "../Context/PlayerContext";
 import Footer from "./Footer";
 
+//MainPage contain all the layout page intail render
 function HomePage() {
   const [albums, setAlbums] = useState([]);
   const {SetSong} = useContext(PlayerContext);

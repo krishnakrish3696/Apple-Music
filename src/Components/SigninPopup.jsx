@@ -22,7 +22,7 @@ import "../Styles/SigninPopup.css";
 import { toast } from "react-toastify";
 
 
-
+//All the login related functionalities are handled here.
 const theme = createTheme({
   palette: {
     primary: red,
@@ -94,7 +94,7 @@ const handlesubmit = (e) => {
           if (!res.ok) {
               throw new Error(`HTTP error! Status: ${res.status}`);
           }
-          return res.json(); // Assuming the response is in JSON format
+          return res.json(); //Assuming the response is in JSON format
       }).then((data) => {
           localStorage.setItem("Token",data.token);
           localStorage.setItem("UserData",JSON.stringify(data.data.user));

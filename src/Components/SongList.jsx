@@ -8,7 +8,7 @@ import PlayerContext from "../Context/PlayerContext";
 import IconButtonMenu from "./Moremenu";
 import IconButton from "@mui/material/IconButton";
 
-
+//This componenet will return list of sings to album detail page and context API page.
 const SongsList = (props) => {
   const mood = props.data;
   const Token = localStorage.getItem("Token");
